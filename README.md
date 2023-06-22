@@ -86,6 +86,18 @@ After training the model, the `predict()` method is used to predict the sentimen
 
 # Training The Ann model and Checking The Accuracy
 The ann model is trained using the train data and the test data are also given to get the accuracy on the test data.
+
+```python
+from Ann import Ann
+from sentiment_analysis import Sentiment_Analysis
+
+#setting the seed , to reproduce the result
+random.seed(42) 
+
+ann = Ann([10,1],['sigmoid','sigmoid'],_type='binary_classification')
+s=Sentiment_Analysis()
+s.train(train_tweets,train_label,test_tweets,test_label,batch_size=20,lr=.1,iterations=20,ann=ann)
+```
 ```
 Parameter:
 
@@ -96,6 +108,28 @@ neurons: [10,1] -> 10 in the first layer and 1 in the second.
 activation: sigmoid in both layer
 After training :
 training_accuracy:99.25% and test accuracy:99.35%
+```
+```
+iter:0 - train_cost:30.48 - train_acc:50.0 - test_acc:50.0
+iter:1 - train_cost:26.89 - train_acc:87.06 - test_acc:85.7
+iter:2 - train_cost:19.06 - train_acc:97.54 - test_acc:96.8
+iter:3 - train_cost:15.7 - train_acc:98.12 - test_acc:97.8
+iter:4 - train_cost:13.73 - train_acc:98.24 - test_acc:98.0
+iter:5 - train_cost:12.4 - train_acc:98.26 - test_acc:98.0
+iter:6 - train_cost:11.43 - train_acc:98.34 - test_acc:98.0
+iter:7 - train_cost:10.69 - train_acc:98.38 - test_acc:98.05
+iter:8 - train_cost:10.12 - train_acc:98.41 - test_acc:98.1
+iter:9 - train_cost:9.66 - train_acc:98.5 - test_acc:98.2
+iter:10 - train_cost:9.29 - train_acc:98.6 - test_acc:98.35
+iter:11 - train_cost:8.99 - train_acc:98.66 - test_acc:98.5
+iter:12 - train_cost:8.73 - train_acc:98.91 - test_acc:98.8
+iter:13 - train_cost:8.51 - train_acc:99.02 - test_acc:99.15
+iter:14 - train_cost:8.33 - train_acc:99.09 - test_acc:99.2
+iter:15 - train_cost:8.17 - train_acc:99.12 - test_acc:99.25
+iter:16 - train_cost:8.03 - train_acc:99.14 - test_acc:99.25
+iter:17 - train_cost:7.91 - train_acc:99.18 - test_acc:99.3
+iter:18 - train_cost:7.8 - train_acc:99.24 - test_acc:99.3
+iter:19 - train_cost:7.7 - train_acc:99.25 - test_acc:99.35
 ```
 
 
@@ -218,5 +252,4 @@ I appreciate any form of contribution to enhance and expand this sentiment analy
 To contribute, please fork the project repository, make your changes in a separate branch, and submit a pull request with a detailed description of your contributions. I will review your submission and collaborate with you to merge the changes into the main project.
 
 I value and appreciate all contributions, no matter the size or scope. Your involvement helps in advancing the project and making it more valuable to the community. Thank you for considering contributing to this sentiment analysis project!
-
 
